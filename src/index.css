@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Anton", sans-serif;
+  --font-body: "DM Sans", sans-serif;
+  --font-accent: "Bebas Neue", sans-serif;
+  --font-serif: "Playfair Display", serif;
+
+  --color-bk-red: #D62300;
+  --color-bk-orange: #F5A623;
+  --color-bk-yellow: #F2C12E;
+  --color-bk-charcoal: #1A1A1A;
+  --color-bk-offwhite: #FAF7F0;
+  --color-bk-footer: #0F0F0F;
+  --color-bk-card: #242424;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-bk-charcoal text-bk-offwhite font-body antialiased;
+  }
+
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-bk-charcoal;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-bk-red rounded-full;
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@layer components {
+  .btn-pill {
+    @apply px-8 py-3 rounded-full font-accent text-xl transition-all duration-300 uppercase tracking-wider flex items-center justify-center gap-2;
+  }
+  
+  .btn-primary {
+    @apply bg-bk-red text-white hover:bg-bk-orange hover:shadow-[0_0_20px_rgba(214,35,0,0.4)] scale-100 hover:scale-105 active:scale-95;
+  }
+
+  .btn-hero-primary {
+    @apply bg-bk-red text-white px-8 py-4 rounded-md font-bold text-lg uppercase tracking-tighter hover:scale-105 transition-transform;
+  }
+
+  .btn-hero-ghost {
+    @apply border-2 border-bk-orange text-bk-orange px-8 py-4 rounded-md font-bold text-lg uppercase tracking-tighter hover:bg-bk-orange hover:text-black transition-all;
+  }
+
+  .btn-ghost {
+    @apply border-2 border-bk-orange text-bk-orange hover:bg-bk-orange/10 scale-100 hover:scale-105 active:scale-95;
+  }
+
+  .btn-ghost-red {
+    @apply border-2 border-bk-red text-bk-red hover:bg-bk-red/10 scale-100 hover:scale-105 active:scale-95;
+  }
+}
+
+.radial-flame {
+  background: radial-gradient(circle at bottom left, rgba(214, 35, 0, 0.1) 0%, transparent 70%);
+}
+
+.dot-pattern {
+  background-image: radial-gradient(circle at center, #fff 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.diagonal-stripe {
+  clip-path: polygon(0 15%, 100% 0, 100% 85%, 0 100%);
+}
+
+.shadow-bk {
+  box-shadow: 0 0 15px rgba(214, 35, 0, 0.4);
+}
